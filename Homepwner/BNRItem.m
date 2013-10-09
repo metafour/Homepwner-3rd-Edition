@@ -12,8 +12,7 @@
 
 #pragma mark synthesize
 
-@synthesize itemName;
-@synthesize serialNumber, valueInDollars, dateCreated, containedItem, container;
+@synthesize itemName, serialNumber, valueInDollars, dateCreated, containedItem, container;
 
 # pragma mark class methods
 

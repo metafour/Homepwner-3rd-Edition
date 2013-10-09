@@ -47,6 +47,33 @@
     return allItems;
 }
 
+- (NSArray *)itemsGreaterThan:(NSInteger)value
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    for (BNRItem *item in allItems) {
+        if ([item valueInDollars] > value) {
+            [array addObject:item];
+        }
+    }
+    
+    return array;
+}
+
+- (NSArray *)itemsLessThan:(NSInteger)value
+{
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+
+    for (BNRItem *item in allItems) {
+        if ([item valueInDollars] < value) {
+            [array addObject:item];
+        }
+    }
+
+    return array;
+}
+
 - (BNRItem *)createItem
 {
     BNRItem *p = [BNRItem randomItem];
@@ -56,4 +83,29 @@
     return p;
 }
 
+- (NSInteger)numOfItemsGreaterThan:(NSInteger)value
+{
+    NSInteger count = 0;
+    
+    for (int i = 0; i < [allItems count]; i++) {
+        if ([[allItems objectAtIndex:i] valueInDollars] > value) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+- (NSInteger)numOfItemsLessThan:(NSInteger)value
+{
+    NSInteger count = 0;
+    
+    for (int i = 0; i < [allItems count]; i++) {
+        if ([[allItems objectAtIndex:i] valueInDollars] < value) {
+            count++;
+        }
+    }
+    
+    return count;
+}
 @end

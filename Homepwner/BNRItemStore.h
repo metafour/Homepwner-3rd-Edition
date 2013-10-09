@@ -22,7 +22,12 @@
 #pragma mark instance methods
 
 - (NSArray *)allItems;
+- (NSArray *)itemsGreaterThan:(NSInteger)value;
+- (NSArray *)itemsLessThan:(NSInteger)value;
 - (BNRItem *)createItem;
+
+- (NSInteger)numOfItemsGreaterThan:(NSInteger)value;
+- (NSInteger)numOfItemsLessThan:(NSInteger)value;
 
 
 @end

@@ -18,7 +18,7 @@
     
     if (self) {
         for (int i = 0; i < 5; i++) {
-            NSLog(@"Created and added item: %@", [[BNRItemStore sharedStore] createItem]);
+        [[BNRItemStore sharedStore] createItem];
         }
     }
     
@@ -42,8 +42,15 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
     
+    BNRItem *p;
+    
+    if ([indexPath section] == 0) {
+        p = [[[BNRItemStore sharedStore] itemsGreaterThan:49] objectAtIndex:[indexPath row]];
+    } else {
+        p = [[[BNRItemStore sharedStore] itemsLessThan:50] objectAtIndex:[indexPath row]];
+    }
+
     [[cell textLabel] setText:[p description]];
     
     return cell;
@@ -52,8 +59,27 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count];
+    if (section == 0) {
+        return [[BNRItemStore sharedStore] numOfItemsGreaterThan:49];
+    } else {
+        return [[BNRItemStore sharedStore] numOfItemsLessThan:50];
+    }
 }
 
 // optional
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Value is $50 or greater";
+    } else
+    {
+        return @"Value is less than $50";
+    }
+}
 @end
