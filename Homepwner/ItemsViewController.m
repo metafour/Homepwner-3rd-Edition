@@ -45,13 +45,17 @@
     
     BNRItem *p;
     
-    if ([indexPath section] == 0) {
-        p = [[[BNRItemStore sharedStore] itemsGreaterThan:49] objectAtIndex:[indexPath row]];
+    if ([indexPath row] == ([tableView numberOfRowsInSection:[indexPath section]] - 1)) {
+        [[cell textLabel] setText:@"No more items!"];
     } else {
-        p = [[[BNRItemStore sharedStore] itemsLessThan:50] objectAtIndex:[indexPath row]];
+        if ([indexPath section] == 0) {
+            p = [[[BNRItemStore sharedStore] itemsGreaterThan:49] objectAtIndex:[indexPath row]];
+        } else {
+            p = [[[BNRItemStore sharedStore] itemsLessThan:50] objectAtIndex:[indexPath row]];
+        }
+    
+        [[cell textLabel] setText:[p description]];
     }
-
-    [[cell textLabel] setText:[p description]];
     
     return cell;
     
@@ -59,10 +63,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger count;
+    
     if (section == 0) {
-        return [[BNRItemStore sharedStore] numOfItemsGreaterThan:49];
+        count = [[BNRItemStore sharedStore] numOfItemsGreaterThan:49];
     } else {
-        return [[BNRItemStore sharedStore] numOfItemsLessThan:50];
+        count = [[BNRItemStore sharedStore] numOfItemsLessThan:50];
+    }
+    
+    // return 1 more than number of items in section for constant row
+    if (count == 0) {
+        return 1;
+    } else {
+        return count + 1;
     }
 }
 
