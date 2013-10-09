@@ -19,6 +19,9 @@
 		011C9CFE1804EBA200D0D03A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011C9CE61804EBA200D0D03A /* UIKit.framework */; };
 		011C9D061804EBA200D0D03A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 011C9D041804EBA200D0D03A /* InfoPlist.strings */; };
 		011C9D081804EBA200D0D03A /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D071804EBA200D0D03A /* HomepwnerTests.m */; };
+		011C9D131805036E00D0D03A /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D121805036E00D0D03A /* ItemsViewController.m */; };
+		011C9D161805C08600D0D03A /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D151805C08600D0D03A /* BNRItemStore.m */; };
+		011C9D191805C5DB00D0D03A /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D181805C5DB00D0D03A /* BNRItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		011C9D031804EBA200D0D03A /* HomepwnerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HomepwnerTests-Info.plist"; sourceTree = "<group>"; };
 		011C9D051804EBA200D0D03A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		011C9D071804EBA200D0D03A /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
+		011C9D111805036E00D0D03A /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
+		011C9D121805036E00D0D03A /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		011C9D141805C08600D0D03A /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
+		011C9D151805C08600D0D03A /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		011C9D171805C5DB00D0D03A /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
+		011C9D181805C5DB00D0D03A /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +116,14 @@
 		011C9CE81804EBA200D0D03A /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				011C9D111805036E00D0D03A /* ItemsViewController.h */,
+				011C9D121805036E00D0D03A /* ItemsViewController.m */,
+				011C9D141805C08600D0D03A /* BNRItemStore.h */,
+				011C9D151805C08600D0D03A /* BNRItemStore.m */,
 				011C9CF11804EBA200D0D03A /* HomepwnerAppDelegate.h */,
 				011C9CF21804EBA200D0D03A /* HomepwnerAppDelegate.m */,
+				011C9D171805C5DB00D0D03A /* BNRItem.h */,
+				011C9D181805C5DB00D0D03A /* BNRItem.m */,
 				011C9CF41804EBA200D0D03A /* Images.xcassets */,
 				011C9CE91804EBA200D0D03A /* Supporting Files */,
 			);
@@ -240,8 +255,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011C9D131805036E00D0D03A /* ItemsViewController.m in Sources */,
 				011C9CF31804EBA200D0D03A /* HomepwnerAppDelegate.m in Sources */,
+				011C9D191805C5DB00D0D03A /* BNRItem.m in Sources */,
 				011C9CEF1804EBA200D0D03A /* main.m in Sources */,
+				011C9D161805C08600D0D03A /* BNRItemStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
