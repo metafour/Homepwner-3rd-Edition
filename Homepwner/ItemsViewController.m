@@ -54,6 +54,7 @@
             p = [[[BNRItemStore sharedStore] itemsLessThan:50] objectAtIndex:[indexPath row]];
         }
     
+        [[cell textLabel] setFont:[UIFont systemFontOfSize:20]];
         [[cell textLabel] setText:[p description]];
     }
     
@@ -93,6 +94,22 @@
     } else
     {
         return @"Value is less than $50";
+    }
+}
+
+#pragma mark UITableView Delegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
+    NSInteger rowsInSection = [self tableView:tableView numberOfRowsInSection:section];
+//    NSLog(@"Row: %ld, Number of rows in section: %ld", (long)[indexPath row], (long)[tableView numberOfRowsInSection:[indexPath section]]);
+//    NSLog(@"Number of sections: %d", [indexPath section]);
+    if (row == rowsInSection - 1) {
+        return 44.0;
+    } else {
+        return 60.0;
     }
 }
 @end

@@ -16,6 +16,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     ItemsViewController *vc = [[ItemsViewController alloc] init];
+    
+    // set background image of tableview
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"UITableView Background"]];
+    [[vc tableView] setBackgroundView:imageView];
+    
     [[self window] setRootViewController:vc];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
