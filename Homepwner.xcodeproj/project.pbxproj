@@ -22,6 +22,7 @@
 		011C9D131805036E00D0D03A /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D121805036E00D0D03A /* ItemsViewController.m */; };
 		011C9D161805C08600D0D03A /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D151805C08600D0D03A /* BNRItemStore.m */; };
 		011C9D191805C5DB00D0D03A /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D181805C5DB00D0D03A /* BNRItem.m */; };
+		01FB0B37180E14FD00BF3F44 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FB0B36180E14FD00BF3F44 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		011C9D151805C08600D0D03A /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
 		011C9D171805C5DB00D0D03A /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		011C9D181805C5DB00D0D03A /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
+		01FB0B36180E14FD00BF3F44 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				011C9CF21804EBA200D0D03A /* HomepwnerAppDelegate.m */,
 				011C9D171805C5DB00D0D03A /* BNRItem.h */,
 				011C9D181805C5DB00D0D03A /* BNRItem.m */,
+				01FB0B36180E14FD00BF3F44 /* HeaderView.xib */,
 				011C9CF41804EBA200D0D03A /* Images.xcassets */,
 				011C9CE91804EBA200D0D03A /* Supporting Files */,
 			);
@@ -235,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FB0B37180E14FD00BF3F44 /* HeaderView.xib in Resources */,
 				011C9CED1804EBA200D0D03A /* InfoPlist.strings in Resources */,
 				011C9CF51804EBA200D0D03A /* Images.xcassets in Resources */,
 			);
@@ -460,6 +464,7 @@
 				011C9D0D1804EBA200D0D03A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		011C9D0E1804EBA200D0D03A /* Build configuration list for PBXNativeTarget "HomepwnerTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +473,7 @@
 				011C9D101804EBA200D0D03A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
