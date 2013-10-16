@@ -9,6 +9,7 @@
 #import "ItemsViewController.h"
 #import "BNRItem.h"
 #import "BNRItemStore.h"
+#import "DetailViewController.h"
 
 @implementation ItemsViewController
 
@@ -17,6 +18,11 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     
     if (self) {
+        UINavigationItem *navItem = [self navigationItem];
+        
+        [navItem setTitle:@"Homepwner"];
+        [navItem setLeftBarButtonItem:[self editButtonItem]];
+        [navItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)]];
     }
     
     return self;
@@ -27,14 +33,14 @@
     return [self init];
 }
 
-- (UIView *)headerView
-{
-    if (!headerView) {
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-    }
-    
-    return headerView;
-}
+//- (UIView *)headerView
+//{
+//    if (!headerView) {
+//        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+//    }
+//    
+//    return headerView;
+//}
 
 - (IBAction)addNewItem:(id)sender
 {
@@ -48,16 +54,11 @@
     
 }
 
-- (IBAction)toggleEditingMode:(id)sender
+-(void)viewWillAppear:(BOOL)animated
 {
-    if (![self isEditing]) {
-        [self setEditing:YES animated:YES];
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-    } else {
-        [self setEditing:NO animated:YES];
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-    }
+    [super viewWillAppear:animated];
     
+    [[self tableView] reloadData];
 }
 
 #pragma mark UITableViewDataSource Protocol methods
@@ -108,14 +109,14 @@
 
 #pragma mark UITableViewDelegate Protocol methods
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self headerView];
+    DetailViewController *detailView = [[DetailViewController alloc] init];
+    
+    BNRItem *selectedItem = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
+    
+    [detailView setItem:selectedItem];
+    
+    [[self navigationController] pushViewController:detailView animated:YES];
 }
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return [[self headerView] bounds].size.height;
-}
-
 @end

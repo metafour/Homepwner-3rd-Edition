@@ -22,7 +22,8 @@
 		011C9D131805036E00D0D03A /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D121805036E00D0D03A /* ItemsViewController.m */; };
 		011C9D161805C08600D0D03A /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D151805C08600D0D03A /* BNRItemStore.m */; };
 		011C9D191805C5DB00D0D03A /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D181805C5DB00D0D03A /* BNRItem.m */; };
-		01FB0B37180E14FD00BF3F44 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FB0B36180E14FD00BF3F44 /* HeaderView.xib */; };
+		01FB0B3B180F289900BF3F44 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB0B39180F289900BF3F44 /* DetailViewController.m */; };
+		01FB0B3C180F289900BF3F44 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FB0B3A180F289900BF3F44 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,9 @@
 		011C9D151805C08600D0D03A /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
 		011C9D171805C5DB00D0D03A /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		011C9D181805C5DB00D0D03A /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
-		01FB0B36180E14FD00BF3F44 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		01FB0B38180F289900BF3F44 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		01FB0B39180F289900BF3F44 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		01FB0B3A180F289900BF3F44 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,9 @@
 		011C9CE81804EBA200D0D03A /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				01FB0B38180F289900BF3F44 /* DetailViewController.h */,
+				01FB0B39180F289900BF3F44 /* DetailViewController.m */,
+				01FB0B3A180F289900BF3F44 /* DetailViewController.xib */,
 				011C9D111805036E00D0D03A /* ItemsViewController.h */,
 				011C9D121805036E00D0D03A /* ItemsViewController.m */,
 				011C9D141805C08600D0D03A /* BNRItemStore.h */,
@@ -126,7 +132,6 @@
 				011C9CF21804EBA200D0D03A /* HomepwnerAppDelegate.m */,
 				011C9D171805C5DB00D0D03A /* BNRItem.h */,
 				011C9D181805C5DB00D0D03A /* BNRItem.m */,
-				01FB0B36180E14FD00BF3F44 /* HeaderView.xib */,
 				011C9CF41804EBA200D0D03A /* Images.xcassets */,
 				011C9CE91804EBA200D0D03A /* Supporting Files */,
 			);
@@ -238,9 +243,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01FB0B37180E14FD00BF3F44 /* HeaderView.xib in Resources */,
 				011C9CED1804EBA200D0D03A /* InfoPlist.strings in Resources */,
 				011C9CF51804EBA200D0D03A /* Images.xcassets in Resources */,
+				01FB0B3C180F289900BF3F44 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +269,7 @@
 				011C9D191805C5DB00D0D03A /* BNRItem.m in Sources */,
 				011C9CEF1804EBA200D0D03A /* main.m in Sources */,
 				011C9D161805C08600D0D03A /* BNRItemStore.m in Sources */,
+				01FB0B3B180F289900BF3F44 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
