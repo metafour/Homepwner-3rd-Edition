@@ -42,7 +42,7 @@
     
     NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(lastRow) inSection:0];
     
     [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
     
@@ -72,9 +72,15 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
+    ;
     
-    [[cell textLabel] setText:[p description]];
+    if ([indexPath row] == [tableView numberOfRowsInSection:[indexPath section]] - 1) {
+        [[cell textLabel] setText:[[[BNRItemStore sharedStore] allItems] lastObject]];
+    } else {
+         BNRItem *p = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
+    
+        [[cell textLabel] setText:[p description]];
+    }
     
     return cell;
     
@@ -106,6 +112,15 @@
     [[BNRItemStore sharedStore] moveItemAtIndex:[fromIndexPath row] toIndex:[toIndexPath row]];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([indexPath row] == [tableView numberOfRowsInSection:[indexPath section]] - 1) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
 #pragma mark UITableViewDelegate Protocol methods
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -116,6 +131,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return [[self headerView] bounds].size.height;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if ([proposedDestinationIndexPath row] == [tableView numberOfRowsInSection:[proposedDestinationIndexPath section]] - 1) {
+        return [NSIndexPath indexPathForRow:[proposedDestinationIndexPath row] - 1 inSection:[proposedDestinationIndexPath section]];
+    }
+    return proposedDestinationIndexPath;
 }
 
 @end

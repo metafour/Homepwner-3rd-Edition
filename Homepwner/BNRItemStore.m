@@ -36,7 +36,7 @@
     self = [super init];
     
     if (self) {
-        allItems = [[NSMutableArray alloc] init];
+        allItems = [[NSMutableArray alloc] initWithObjects:@"No more items!", nil];
     }
     
     return self;
@@ -51,7 +51,7 @@
 {
     BNRItem *p = [BNRItem randomItem];
     
-    [allItems addObject:p];
+    [allItems insertObject:p atIndex:[allItems indexOfObject:[allItems lastObject]]];
     
     return p;
 }
