@@ -118,4 +118,9 @@
     return [[self headerView] bounds].size.height;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Remove";
+}
+
 @end
