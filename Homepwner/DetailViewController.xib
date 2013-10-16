@@ -52,7 +52,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="setNewName:" destination="-1" eventType="valueChanged" id="PCa-31-tcu"/>
                         <outlet property="delegate" destination="-1" id="BXI-kp-fuS"/>
                     </connections>
                 </textField>
@@ -62,7 +61,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <connections>
-                        <action selector="setNewValue:" destination="-1" eventType="valueChanged" id="osD-qq-Ukz"/>
                         <outlet property="delegate" destination="-1" id="sZr-bs-mp0"/>
                     </connections>
                 </textField>
@@ -72,7 +70,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="setNewSerial:" destination="-1" eventType="valueChanged" id="RYf-Jb-cyJ"/>
                         <outlet property="delegate" destination="-1" id="QLA-iR-QkL"/>
                     </connections>
                 </textField>

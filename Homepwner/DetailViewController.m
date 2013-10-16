@@ -51,6 +51,16 @@
     [item setValueInDollars:[[valueField text] integerValue]];
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:textField action:@selector(resignFirstResponder)]];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [[self navigationItem] setRightBarButtonItem:nil];
+}
+
 #pragma mark accessors
 
 - (void)setItem:(BNRItem *)i
