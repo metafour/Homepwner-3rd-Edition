@@ -60,7 +60,7 @@
                     <rect key="frame" x="74" y="155" width="97" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <connections>
                         <action selector="setNewValue:" destination="-1" eventType="valueChanged" id="osD-qq-Ukz"/>
                         <outlet property="delegate" destination="-1" id="sZr-bs-mp0"/>
