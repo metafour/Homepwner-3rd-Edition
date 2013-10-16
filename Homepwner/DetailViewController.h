@@ -20,4 +20,6 @@
 
 @property (nonatomic, strong) BNRItem *item;
 
+- (IBAction)changeDate:(id)sender;
+
 @end

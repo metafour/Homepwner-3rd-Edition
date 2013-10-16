@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "BNRItem.h"
+#import "DateViewController.h"
 
 @interface DetailViewController ()
 
@@ -69,4 +70,10 @@
     [[self navigationItem] setTitle:[item itemName]];
 }
 
+- (IBAction)changeDate:(id)sender
+{
+    DateViewController *dvc = [[DateViewController alloc] init];
+    [[dvc datePicker] setDate:[item dateCreated]];
+    [[self navigationController] pushViewController:dvc animated:YES];
+}
 @end

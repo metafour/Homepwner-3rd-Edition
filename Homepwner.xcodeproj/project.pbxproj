@@ -24,6 +24,8 @@
 		011C9D191805C5DB00D0D03A /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 011C9D181805C5DB00D0D03A /* BNRItem.m */; };
 		01FB0B3B180F289900BF3F44 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB0B39180F289900BF3F44 /* DetailViewController.m */; };
 		01FB0B3C180F289900BF3F44 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FB0B3A180F289900BF3F44 /* DetailViewController.xib */; };
+		01FB0B40180F58F700BF3F44 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FB0B3E180F58F700BF3F44 /* DateViewController.m */; };
+		01FB0B41180F58F700BF3F44 /* DateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FB0B3F180F58F700BF3F44 /* DateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,9 @@
 		01FB0B38180F289900BF3F44 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		01FB0B39180F289900BF3F44 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		01FB0B3A180F289900BF3F44 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		01FB0B3D180F58F700BF3F44 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
+		01FB0B3E180F58F700BF3F44 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
+		01FB0B3F180F58F700BF3F44 /* DateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +126,9 @@
 		011C9CE81804EBA200D0D03A /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				01FB0B3D180F58F700BF3F44 /* DateViewController.h */,
+				01FB0B3E180F58F700BF3F44 /* DateViewController.m */,
+				01FB0B3F180F58F700BF3F44 /* DateViewController.xib */,
 				01FB0B38180F289900BF3F44 /* DetailViewController.h */,
 				01FB0B39180F289900BF3F44 /* DetailViewController.m */,
 				01FB0B3A180F289900BF3F44 /* DetailViewController.xib */,
@@ -243,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FB0B41180F58F700BF3F44 /* DateViewController.xib in Resources */,
 				011C9CED1804EBA200D0D03A /* InfoPlist.strings in Resources */,
 				011C9CF51804EBA200D0D03A /* Images.xcassets in Resources */,
 				01FB0B3C180F289900BF3F44 /* DetailViewController.xib in Resources */,
@@ -270,6 +279,7 @@
 				011C9CEF1804EBA200D0D03A /* main.m in Sources */,
 				011C9D161805C08600D0D03A /* BNRItemStore.m in Sources */,
 				01FB0B3B180F289900BF3F44 /* DetailViewController.m in Sources */,
+				01FB0B40180F58F700BF3F44 /* DateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
