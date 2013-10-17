@@ -62,6 +62,14 @@
     [[self navigationItem] setRightBarButtonItem:nil];
 }
 
+- (IBAction)changeDate:(id)sender
+{
+    DateViewController *dvc = [[DateViewController alloc] init];
+    [dvc setItem:item];
+    [[dvc datePicker] setDate:[item dateCreated]];
+    [[self navigationController] pushViewController:dvc animated:YES];
+}
+
 #pragma mark accessors
 
 - (void)setItem:(BNRItem *)i
@@ -70,10 +78,4 @@
     [[self navigationItem] setTitle:[item itemName]];
 }
 
-- (IBAction)changeDate:(id)sender
-{
-    DateViewController *dvc = [[DateViewController alloc] init];
-    [[dvc datePicker] setDate:[item dateCreated]];
-    [[self navigationController] pushViewController:dvc animated:YES];
-}
 @end

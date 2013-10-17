@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class BNRItem;
+
 @interface DateViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, strong) BNRItem *item;
 
 @end
