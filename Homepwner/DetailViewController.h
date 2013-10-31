@@ -17,6 +17,7 @@
     __weak IBOutlet UITextField *valueField;
     __weak IBOutlet UILabel *dateLabel;
     __weak IBOutlet UIImageView *imageView;
+    __weak IBOutlet UIToolbar *toolbar;
 }
 
 @property (nonatomic, strong) BNRItem *item;

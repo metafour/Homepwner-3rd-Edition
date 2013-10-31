@@ -11,10 +11,6 @@
 #import "DateViewController.h"
 #import "BNRImageStore.h"
 
-@interface DetailViewController ()
-
-@end
-
 @implementation DetailViewController
 
 @synthesize item;
@@ -22,6 +18,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeItemImage)];
+    
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:[[toolbar items] objectAtIndex:0],flexibleSpace, deleteButton, nil];
+    [toolbar setItems:toolbarItems animated:YES];
     
 //    [[self navigationItem] setTitle:[item itemName]];
 }
@@ -95,6 +97,15 @@
 - (IBAction)backgroundTapped:(id)sender
 {
     [[self view] endEditing:YES];
+}
+
+- (void)removeItemImage
+{
+    [[BNRImageStore sharedStore] deleteImageForKey:[item imageKey]];
+    [item setImageKey:nil];
+    [imageView setImage:nil];
+//    [[self view] setNeedsDisplay];
+    
 }
 
 #pragma mark accessors
