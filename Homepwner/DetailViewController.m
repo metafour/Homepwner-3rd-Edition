@@ -79,6 +79,7 @@
 - (IBAction)takePicture:(id)sender
 {
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    [ipc setDelegate:self];
     
     // Allow editing of image
     [ipc setAllowsEditing:YES];
@@ -86,13 +87,29 @@
     // If the device has a camera present view to take a picture
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [ipc setSourceType:UIImagePickerControllerSourceTypeCamera];
+        // Let's make two views that are the vertical and horizontal crosshairs using frames
+        // Add the views as a subview of another and set that view as the cameraOverlayView
+        // We could also just create a custom subclass of UIView and override -drawRect:
+        // But where's the fun in that?
+        CGRect frame = CGRectMake([[UIScreen mainScreen] bounds].size.width/2-5, [[UIScreen mainScreen] bounds].size.height/2-5, 10, 10);
+        UIView *crosshairView = [[UIView alloc] initWithFrame:frame];
+//        [crosshairView setBackgroundColor:[UIColor greenColor]];
+        CGRect verticalFrame = CGRectMake(frame.size.width/2-1, 0, 2, 10);
+        CGRect horizontalFrame = CGRectMake(0, frame.size.height/2-1, 10, 2);
+        UIView *verticalCrosshairView = [[UIView alloc] initWithFrame:verticalFrame];
+        [verticalCrosshairView setBackgroundColor:[UIColor yellowColor]];
+        UIView *horizontalCrosshairView = [[UIView alloc] initWithFrame:horizontalFrame];
+        [horizontalCrosshairView setBackgroundColor:[UIColor yellowColor]];
+        [crosshairView addSubview:verticalCrosshairView];
+        [crosshairView addSubview:horizontalCrosshairView];
+        [ipc setCameraOverlayView:crosshairView];
     } else { // Otherwise present the Photo Library
         [ipc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     
-    [ipc setDelegate:self];
     [self presentViewController:ipc animated:YES completion:NULL];
 }
+
 
 - (IBAction)backgroundTapped:(id)sender
 {
