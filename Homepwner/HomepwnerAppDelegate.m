@@ -18,7 +18,12 @@
     ItemsViewController *ivc = [[ItemsViewController alloc] init];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ivc];
+    // Black Translucent NavBar
 //    [[navController navigationBar] setBarStyle:UIBarStyleBlack];
+    // Opaque NavBar
+//    [[navController navigationBar] setTranslucent:NO];
+    // Light Gray NavBar
+//    [[navController navigationBar] setBarTintColor:[UIColor lightGrayColor]];
     
     [[self window] setRootViewController:navController];
     self.window.backgroundColor = [UIColor whiteColor];

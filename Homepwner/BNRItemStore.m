@@ -11,7 +11,7 @@
 
 @implementation BNRItemStore
 
-#pragma mark class methods
+#pragma mark - class methods
 
 + (BNRItemStore *)sharedStore
 {
@@ -29,7 +29,7 @@
     return [self sharedStore];
 }
 
-#pragma mark instance methods
+#pragma mark - instance methods
 
 - (id)init
 {

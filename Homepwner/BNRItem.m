@@ -10,12 +10,11 @@
 
 @implementation BNRItem
 
-#pragma mark synthesize
+//#pragma mark - synthesize
 
-@synthesize itemName;
-@synthesize serialNumber, valueInDollars, dateCreated, containedItem, container;
+@synthesize itemName, serialNumber, valueInDollars, dateCreated, containedItem, container, imageKey;
 
-# pragma mark class methods
+# pragma mark - class methods
 
 + (id)randomItem
 {
@@ -37,7 +36,7 @@
     return newItem;
 }
 
-# pragma mark initializers
+# pragma mark - initializers
 
 - (id)initWithItemName:(NSString *)name
         valueInDollars:(int)value
@@ -71,7 +70,7 @@
     return [self initWithItemName:name valueInDollars:0 serialNumber:@""];
 }
 
-# pragma mark accessors
+# pragma mark - accessors
 
 - (void)setContainedItem:(BNRItem *)i
 {
@@ -82,7 +81,7 @@
     [i setContainer:self];
 }
 
-# pragma mark overrides
+# pragma mark - overrides
 
 - (NSString *)description
 {

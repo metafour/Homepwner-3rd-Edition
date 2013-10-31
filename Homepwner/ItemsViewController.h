@@ -12,6 +12,6 @@
 {
 }
 
-- (IBAction)addNewItem:(id)sender;
+- (void)addNewItem:(id)sender;
 
 @end

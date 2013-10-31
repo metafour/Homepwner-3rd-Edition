@@ -42,7 +42,7 @@
 //    return headerView;
 //}
 
-- (IBAction)addNewItem:(id)sender
+- (void)addNewItem:(id)sender
 {
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
     
@@ -61,7 +61,7 @@
     [[self tableView] reloadData];
 }
 
-#pragma mark UITableViewDataSource Protocol methods
+#pragma mark - UITableViewDataSource Protocol methods
 
 // required
 
@@ -107,7 +107,7 @@
     [[BNRItemStore sharedStore] moveItemAtIndex:[fromIndexPath row] toIndex:[toIndexPath row]];
 }
 
-#pragma mark UITableViewDelegate Protocol methods
+#pragma mark - UITableViewDelegate Protocol methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
