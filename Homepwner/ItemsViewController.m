@@ -97,6 +97,9 @@
         BNRItem *item = [items objectAtIndex:[indexPath row]];
         [itemStore removeItem:item];
         
+        // Remove image from store ?
+//        [[BNRImageStore sharedStore] deleteImageForKey:[item imageKey]];
+        
         // Remove item from tableview
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

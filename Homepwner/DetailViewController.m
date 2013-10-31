@@ -78,6 +78,9 @@
 {
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
     
+    // Allow editing of image
+    [ipc setAllowsEditing:YES];
+    
     // If the device has a camera present view to take a picture
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [ipc setSourceType:UIImagePickerControllerSourceTypeCamera];
@@ -125,7 +128,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
     
     NSString *imageKey = [item imageKey];
     
