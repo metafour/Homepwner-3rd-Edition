@@ -9,15 +9,38 @@
 #import "DetailViewController.h"
 #import "BNRItem.h"
 #import "DateViewController.h"
+#import "BNRItemStore.h"
 #import "BNRImageStore.h"
 
 @implementation DetailViewController
 
-@synthesize item;
+@synthesize item, dismissBlock;
+
+- (id)init
+{
+    @throw [NSException exceptionWithName:@"Wrong Initializer" reason:@"Use initForNewItem:" userInfo:nil];
+}
+- (id)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:@"DetailViewController" bundle:nil];
+    
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
+            [[self navigationItem] setRightBarButtonItem:doneItem];
+            
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+            [[self navigationItem] setLeftBarButtonItem:cancelItem];
+        }
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self view] setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     UIBarButtonItem *deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(removeItemImage)];
     
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
@@ -66,6 +89,15 @@
     [item setValueInDollars:[[valueField text] integerValue]];
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAll;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+}
+
 - (IBAction)changeDate:(id)sender
 {
     DateViewController *dvc = [[DateViewController alloc] init];
@@ -78,7 +110,13 @@
 
 - (IBAction)takePicture:(id)sender
 {
+    if ([popoverController isPopoverVisible]) {
+        [popoverController dismissPopoverAnimated:YES];
+        popoverController = nil;
+        return;
+    }
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    [ipc setDelegate:self];
     
     // Allow editing of image
     [ipc setAllowsEditing:YES];
@@ -89,9 +127,20 @@
     } else { // Otherwise present the Photo Library
         [ipc setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
-    
-    [ipc setDelegate:self];
-    [self presentViewController:ipc animated:YES completion:NULL];
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        popoverController = [[UIPopoverController alloc] initWithContentViewController:ipc];
+        [popoverController setDelegate:self];
+        [popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    } else {
+        [self presentViewController:ipc animated:YES completion:NULL];
+    }
+
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)poc
+{
+    popoverController = nil;
 }
 
 - (IBAction)backgroundTapped:(id)sender
@@ -106,6 +155,20 @@
     [imageView setImage:nil];
 //    [[self view] setNeedsDisplay];
     
+}
+
+- (void)save:(id)sender
+{
+    [item setItemName:[nameField text]];
+    [item setSerialNumber:[serialField text]];
+    [item setValueInDollars:[[valueField text] integerValue]];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
+}
+
+- (void)cancel:(id)sender
+{
+    [[BNRItemStore sharedStore] removeItem:item];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:dismissBlock];
 }
 
 #pragma mark accessors
@@ -157,7 +220,13 @@
     CFRelease(imageUUID);
     CFRelease(imageUUIDString);
     [imageView setImage:image];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom]) {
+        [popoverController dismissPopoverAnimated:YES];
+        popoverController = nil;
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end

@@ -46,11 +46,17 @@
 {
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
     
-    NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    DetailViewController *dvc = [[DetailViewController alloc] initForNewItem:YES];
+    [dvc setItem:newItem];
+    [dvc setDismissBlock:
+     ^{ [[self tableView] reloadData]; }
+     ];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:dvc];
+    [nc setModalPresentationStyle:UIModalPresentationFormSheet];
+//    [nc setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     
-    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    [self presentViewController:nc animated:YES completion:nil];
     
 }
 
@@ -59,6 +65,15 @@
     [super viewWillAppear:animated];
     
     [[self tableView] reloadData];
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        return UIInterfaceOrientationMaskAll;
+    } else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
 }
 
 #pragma mark - UITableViewDataSource Protocol methods
@@ -114,7 +129,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailViewController *detailView = [[DetailViewController alloc] init];
+    DetailViewController *detailView = [[DetailViewController alloc] initForNewItem:NO];
     
     BNRItem *selectedItem = [[[BNRItemStore sharedStore] allItems] objectAtIndex:[indexPath row]];
     
